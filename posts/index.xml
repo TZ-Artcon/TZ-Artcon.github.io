@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Tomas Žukauskas – ISit-23</title>
+    <link>https://tz-artcon.github.io/posts/</link>
+    <description>Recent content in Posts on Tomas Žukauskas – ISit-23</description>
+    <generator>Hugo</generator>
+    <language>lt-lt</language>
+    <lastBuildDate>Tue, 24 Nov 2026 14:12:56 +0200</lastBuildDate>
+    <atom:link href="https://tz-artcon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pirmas įrašas</title>
+      <link>https://tz-artcon.github.io/posts/pirmas-irasas/</link>
+      <pubDate>Tue, 24 Nov 2026 14:12:56 +0200</pubDate>
+      <guid>https://tz-artcon.github.io/posts/pirmas-irasas/</guid>
+      <description>&lt;p&gt;Tai pirmasis mano Hugo tinklalapio įrašas. Puslapis sugeneruotas Hugo programa su PaperMod stiliumi.&lt;/p&gt;
+&lt;p&gt;Tinklalapio kodas saugomas privačioje &lt;code&gt;hugo&lt;/code&gt; saugykloje, o sugeneruotas puslapis – viešoje &lt;code&gt;TZ-Artcon.github.io&lt;/code&gt; saugykloje, iš kurios jį viešina GitHub Pages.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
