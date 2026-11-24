@@ -16,10 +16,12 @@ import math
 def atstumas(a, b, R=6371):
     &#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34;
     la1, lo1, la2, lo2 = map(math.radians, (*a, *b))
-    h = math.sin((la2 - la1) / 2) ** 2 &#43; math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
+    h = (math.sin((la2 - la1) / 2) ** 2
+         &#43; math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2)
     return 2 * R * math.asin(math.sqrt(h))
 
-print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986))))  # Vilnius–Torontas: 6977 km
+vilnius, torontas = (54.6892, 25.2798), (43.7064, -79.3986)
+print(round(atstumas(vilnius, torontas)))  # 6977 km
 ">
 <meta name="author" content="Tomas Žukauskas">
 <link rel="canonical" href="https://tz-artcon.github.io/posts/paketo-kelias/">
@@ -52,7 +54,7 @@ print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986))))  # Vilnius–Tor
   <meta property="og:description" content="Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.
 Maršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.
 Atstumą tarp taškų skaičiavau haversine formule:
-import math def atstumas(a, b, R=6371): &#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34; la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = math.sin((la2 - la1) / 2) ** 2 &#43; math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2 return 2 * R * math.asin(math.sqrt(h)) print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986)))) # Vilnius–Torontas: 6977 km">
+import math def atstumas(a, b, R=6371): &#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34; la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = (math.sin((la2 - la1) / 2) ** 2 &#43; math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2) return 2 * R * math.asin(math.sqrt(h)) vilnius, torontas = (54.6892, 25.2798), (43.7064, -79.3986) print(round(atstumas(vilnius, torontas))) # 6977 km">
   <meta property="og:locale" content="lt_lt">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -66,7 +68,7 @@ import math def atstumas(a, b, R=6371): &#34;&#34;&#34;Didžiojo apskritimo atst
   <meta name="twitter:description" content="Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.
 Maršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.
 Atstumą tarp taškų skaičiavau haversine formule:
-import math def atstumas(a, b, R=6371): &#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34; la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = math.sin((la2 - la1) / 2) ** 2 &#43; math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2 return 2 * R * math.asin(math.sqrt(h)) print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986)))) # Vilnius–Torontas: 6977 km">
+import math def atstumas(a, b, R=6371): &#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34; la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = (math.sin((la2 - la1) / 2) ** 2 &#43; math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2) return 2 * R * math.asin(math.sqrt(h)) vilnius, torontas = (54.6892, 25.2798), (43.7064, -79.3986) print(round(atstumas(vilnius, torontas))) # 6977 km">
 
 
 <script type="application/ld+json">
@@ -95,12 +97,12 @@ import math def atstumas(a, b, R=6371): &#34;&#34;&#34;Didžiojo apskritimo atst
   "@type": "BlogPosting",
   "headline": "Paketo kelias iki Realms of Despair serverio",
   "name": "Paketo kelias iki Realms of Despair serverio",
-  "description": "Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.\nMaršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.\nAtstumą tarp taškų skaičiavau haversine formule:\nimport math def atstumas(a, b, R=6371): \u0026#34;\u0026#34;\u0026#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.\u0026#34;\u0026#34;\u0026#34; la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2 return 2 * R * math.asin(math.sqrt(h)) print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986)))) # Vilnius–Torontas: 6977 km ",
+  "description": "Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.\nMaršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.\nAtstumą tarp taškų skaičiavau haversine formule:\nimport math def atstumas(a, b, R=6371): \u0026#34;\u0026#34;\u0026#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.\u0026#34;\u0026#34;\u0026#34; la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = (math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2) return 2 * R * math.asin(math.sqrt(h)) vilnius, torontas = (54.6892, 25.2798), (43.7064, -79.3986) print(round(atstumas(vilnius, torontas))) # 6977 km ",
   "keywords": [
     "tinklai", "tracert"
   ],
-  "articleBody": "Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.\nMaršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.\nAtstumą tarp taškų skaičiavau haversine formule:\nimport math def atstumas(a, b, R=6371): \"\"\"Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.\"\"\" la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2 return 2 * R * math.asin(math.sqrt(h)) print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986)))) # Vilnius–Torontas: 6977 km ",
-  "wordCount" : "101",
+  "articleBody": "Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.\nMaršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.\nAtstumą tarp taškų skaičiavau haversine formule:\nimport math def atstumas(a, b, R=6371): \"\"\"Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.\"\"\" la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = (math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2) return 2 * R * math.asin(math.sqrt(h)) vilnius, torontas = (54.6892, 25.2798), (43.7064, -79.3986) print(round(atstumas(vilnius, torontas))) # 6977 km ",
+  "wordCount" : "105",
   "inLanguage": "en",
   "datePublished": "2026-11-24T14:15:34+02:00",
   "dateModified": "2026-11-24T14:15:34+02:00",
@@ -183,10 +185,12 @@ import math def atstumas(a, b, R=6371): &#34;&#34;&#34;Didžiojo apskritimo atst
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">atstumas</span>(a, b, R<span style="color:#f92672">=</span><span style="color:#ae81ff">6371</span>):
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    la1, lo1, la2, lo2 <span style="color:#f92672">=</span> map(math<span style="color:#f92672">.</span>radians, (<span style="color:#f92672">*</span>a, <span style="color:#f92672">*</span>b))
-</span></span><span style="display:flex;"><span>    h <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sin((la2 <span style="color:#f92672">-</span> la1) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> math<span style="color:#f92672">.</span>cos(la1) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>cos(la2) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>sin((lo2 <span style="color:#f92672">-</span> lo1) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    h <span style="color:#f92672">=</span> (math<span style="color:#f92672">.</span>sin((la2 <span style="color:#f92672">-</span> la1) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#f92672">+</span> math<span style="color:#f92672">.</span>cos(la1) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>cos(la2) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>sin((lo2 <span style="color:#f92672">-</span> lo1) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> R <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>asin(math<span style="color:#f92672">.</span>sqrt(h))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(round(atstumas((<span style="color:#ae81ff">54.6892</span>, <span style="color:#ae81ff">25.2798</span>), (<span style="color:#ae81ff">43.7064</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">79.3986</span>))))  <span style="color:#75715e"># Vilnius–Torontas: 6977 km</span>
+</span></span><span style="display:flex;"><span>vilnius, torontas <span style="color:#f92672">=</span> (<span style="color:#ae81ff">54.6892</span>, <span style="color:#ae81ff">25.2798</span>), (<span style="color:#ae81ff">43.7064</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">79.3986</span>)
+</span></span><span style="display:flex;"><span>print(round(atstumas(vilnius, torontas)))  <span style="color:#75715e"># 6977 km</span>
 </span></span></code></pre></div>
 
   </div>
