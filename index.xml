@@ -6,8 +6,21 @@
     <description>Recent content on Tomas Žukauskas – ISit-23</description>
     <generator>Hugo</generator>
     <language>lt-lt</language>
-    <lastBuildDate>Tue, 24 Nov 2026 14:15:34 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 14:21:51 +0200</lastBuildDate>
     <atom:link href="https://tz-artcon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apie mane</title>
+      <link>https://tz-artcon.github.io/apie/</link>
+      <pubDate>Tue, 24 Nov 2026 14:21:51 +0200</pubDate>
+      <guid>https://tz-artcon.github.io/apie/</guid>
+      <description>&lt;p&gt;Esu &lt;strong&gt;Tomas Žukauskas&lt;/strong&gt;, VILNIUS TECH grupės &lt;strong&gt;ISit-23&lt;/strong&gt; studentas.&lt;/p&gt;
+&lt;p&gt;Šis tinklalapis sukurtas Debesų kompiuterijos laboratoriniame darbe „Hugo ir git“:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;puslapis generuojamas &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; programa su PaperMod stiliumi;&lt;/li&gt;
+&lt;li&gt;tinklalapio kodas saugomas privačioje &lt;code&gt;hugo&lt;/code&gt; saugykloje;&lt;/li&gt;
+&lt;li&gt;sugeneruotas puslapis (&lt;code&gt;public&lt;/code&gt; aplankas) – viešoje &lt;code&gt;TZ-Artcon.github.io&lt;/code&gt; saugykloje, iš kurios jį viešina GitHub Pages.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>Paketo kelias iki Realms of Despair serverio</title>
       <link>https://tz-artcon.github.io/posts/paketo-kelias/</link>
