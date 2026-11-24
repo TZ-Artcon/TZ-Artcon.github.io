@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="light">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Paketo kelias iki Realms of Despair serverio | Tomas Žukauskas – ISit-23</title>
+<meta name="keywords" content="tinklai, tracert">
+<meta name="description" content="Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.
+
+Maršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.
+Atstumą tarp taškų skaičiavau haversine formule:
+import math
+
+def atstumas(a, b, R=6371):
+    &#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34;
+    la1, lo1, la2, lo2 = map(math.radians, (*a, *b))
+    h = math.sin((la2 - la1) / 2) ** 2 &#43; math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
+    return 2 * R * math.asin(math.sqrt(h))
+
+print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986))))  # Vilnius–Torontas: 6977 km
+">
+<meta name="author" content="Tomas Žukauskas">
+<link rel="canonical" href="https://tz-artcon.github.io/posts/paketo-kelias/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2fd9135862a3da866393a267370bb97cd812193a02eb63558b88b00f30ec3648.css" integrity="sha256-L9kTWGKj2oZjk6JnNwu5fNgSGToC62NVi4iwDzDsNkg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://tz-artcon.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tz-artcon.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tz-artcon.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tz-artcon.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tz-artcon.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://tz-artcon.github.io/posts/paketo-kelias/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    }
+
+</script><meta property="og:url" content="https://tz-artcon.github.io/posts/paketo-kelias/">
+  <meta property="og:site_name" content="Tomas Žukauskas – ISit-23">
+  <meta property="og:title" content="Paketo kelias iki Realms of Despair serverio">
+  <meta property="og:description" content="Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.
+Maršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.
+Atstumą tarp taškų skaičiavau haversine formule:
+import math def atstumas(a, b, R=6371): &#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34; la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = math.sin((la2 - la1) / 2) ** 2 &#43; math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2 return 2 * R * math.asin(math.sqrt(h)) print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986)))) # Vilnius–Torontas: 6977 km">
+  <meta property="og:locale" content="lt_lt">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-11-24T14:15:34+02:00">
+    <meta property="article:modified_time" content="2026-11-24T14:15:34+02:00">
+    <meta property="article:tag" content="Tinklai">
+    <meta property="article:tag" content="Tracert">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Paketo kelias iki Realms of Despair serverio">
+  <meta name="twitter:description" content="Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.
+Maršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.
+Atstumą tarp taškų skaičiavau haversine formule:
+import math def atstumas(a, b, R=6371): &#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34; la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = math.sin((la2 - la1) / 2) ** 2 &#43; math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2 return 2 * R * math.asin(math.sqrt(h)) print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986)))) # Vilnius–Torontas: 6977 km">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tz-artcon.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Paketo kelias iki Realms of Despair serverio",
+      "item": "https://tz-artcon.github.io/posts/paketo-kelias/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Paketo kelias iki Realms of Despair serverio",
+  "name": "Paketo kelias iki Realms of Despair serverio",
+  "description": "Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.\nMaršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.\nAtstumą tarp taškų skaičiavau haversine formule:\nimport math def atstumas(a, b, R=6371): \u0026#34;\u0026#34;\u0026#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.\u0026#34;\u0026#34;\u0026#34; la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2 return 2 * R * math.asin(math.sqrt(h)) print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986)))) # Vilnius–Torontas: 6977 km ",
+  "keywords": [
+    "tinklai", "tracert"
+  ],
+  "articleBody": "Wireshark laboratoriniame darbe komanda tracert realmsofdespair.com nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.\nMaršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.\nAtstumą tarp taškų skaičiavau haversine formule:\nimport math def atstumas(a, b, R=6371): \"\"\"Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.\"\"\" la1, lo1, la2, lo2 = map(math.radians, (*a, *b)) h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2 return 2 * R * math.asin(math.sqrt(h)) print(round(atstumas((54.6892, 25.2798), (43.7064, -79.3986)))) # Vilnius–Torontas: 6977 km ",
+  "wordCount" : "101",
+  "inLanguage": "en",
+  "datePublished": "2026-11-24T14:15:34+02:00",
+  "dateModified": "2026-11-24T14:15:34+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Tomas Žukauskas"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tz-artcon.github.io/posts/paketo-kelias/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tomas Žukauskas – ISit-23",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tz-artcon.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://tz-artcon.github.io/" accesskey="h" title="Tomas Žukauskas – ISit-23 (Alt + H)">Tomas Žukauskas – ISit-23</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://tz-artcon.github.io/posts/" title="Posts">
+                    <span>Įrašai</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Paketo kelias iki Realms of Despair serverio
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-11-24T14:15:34+02:00'>2026 m. lapkričio 24 d.</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Tomas Žukauskas</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>Wireshark laboratoriniame darbe komanda <code>tracert realmsofdespair.com</code> nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.</p>
+<p><img alt="Paketo maršrutas iš Vilniaus į Torontą" loading="lazy" src="/images/marsrutas.png"></p>
+<p>Maršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.</p>
+<p>Atstumą tarp taškų skaičiavau haversine formule:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">atstumas</span>(a, b, R<span style="color:#f92672">=</span><span style="color:#ae81ff">6371</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    la1, lo1, la2, lo2 <span style="color:#f92672">=</span> map(math<span style="color:#f92672">.</span>radians, (<span style="color:#f92672">*</span>a, <span style="color:#f92672">*</span>b))
+</span></span><span style="display:flex;"><span>    h <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sin((la2 <span style="color:#f92672">-</span> la1) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> math<span style="color:#f92672">.</span>cos(la1) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>cos(la2) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>sin((lo2 <span style="color:#f92672">-</span> lo1) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> R <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>asin(math<span style="color:#f92672">.</span>sqrt(h))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(round(atstumas((<span style="color:#ae81ff">54.6892</span>, <span style="color:#ae81ff">25.2798</span>), (<span style="color:#ae81ff">43.7064</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">79.3986</span>))))  <span style="color:#75715e"># Vilnius–Torontas: 6977 km</span>
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://tz-artcon.github.io/tags/tinklai/">Tinklai</a></li>
+      <li><a href="https://tz-artcon.github.io/tags/tracert/">Tracert</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://tz-artcon.github.io/posts/pirmas-irasas/">
+    <span class="title">Next »</span>
+    <span>Pirmas įrašas</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://tz-artcon.github.io/">Tomas Žukauskas – ISit-23</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        
+        let menuScrollTimeout;
+        menu.addEventListener("scroll", function () {
+            clearTimeout(menuScrollTimeout);
+            menuScrollTimeout = setTimeout(function () {
+                localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+            }, 150);
+        }, { passive: true });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            const target = document.querySelector(`[id='${decodeURIComponent(id)}']`);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                target.scrollIntoView();
+            }
+            
+            
+            if (target.tabIndex < 0 && !target.hasAttribute("tabindex")) {
+                target.setAttribute("tabindex", "-1");
+            }
+            target.focus({ preventScroll: true });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    var scrollTicking = false;
+    
+    window.addEventListener("scroll", function () {
+        if (scrollTicking) {
+            return;
+        }
+        scrollTicking = true;
+        requestAnimationFrame(function () {
+            const scrollThreshold = window.innerHeight;
+            const shown = document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold;
+            toplink.classList.toggle("hidden", !shown);
+            scrollTicking = false;
+        });
+    }, { passive: true });
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

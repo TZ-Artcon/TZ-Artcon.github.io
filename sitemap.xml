@@ -2,17 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tz-artcon.github.io/posts/paketo-kelias/</loc>
+    <lastmod>2026-11-24T14:15:34+02:00</lastmod>
+  </url><url>
+    <loc>https://tz-artcon.github.io/posts/</loc>
+    <lastmod>2026-11-24T14:15:34+02:00</lastmod>
+  </url><url>
+    <loc>https://tz-artcon.github.io/tags/</loc>
+    <lastmod>2026-11-24T14:15:34+02:00</lastmod>
+  </url><url>
+    <loc>https://tz-artcon.github.io/tags/tinklai/</loc>
+    <lastmod>2026-11-24T14:15:34+02:00</lastmod>
+  </url><url>
+    <loc>https://tz-artcon.github.io/</loc>
+    <lastmod>2026-11-24T14:15:34+02:00</lastmod>
+  </url><url>
+    <loc>https://tz-artcon.github.io/tags/tracert/</loc>
+    <lastmod>2026-11-24T14:15:34+02:00</lastmod>
+  </url><url>
     <loc>https://tz-artcon.github.io/posts/pirmas-irasas/</loc>
     <lastmod>2026-11-24T14:12:56+02:00</lastmod>
   </url><url>
-    <loc>https://tz-artcon.github.io/posts/</loc>
-    <lastmod>2026-11-24T14:12:56+02:00</lastmod>
-  </url><url>
-    <loc>https://tz-artcon.github.io/</loc>
-    <lastmod>2026-11-24T14:12:56+02:00</lastmod>
-  </url><url>
     <loc>https://tz-artcon.github.io/categories/</loc>
-  </url><url>
-    <loc>https://tz-artcon.github.io/tags/</loc>
   </url>
 </urlset>

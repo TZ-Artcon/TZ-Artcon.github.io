@@ -6,8 +6,28 @@
     <description>Recent content on Tomas Žukauskas – ISit-23</description>
     <generator>Hugo</generator>
     <language>lt-lt</language>
-    <lastBuildDate>Tue, 24 Nov 2026 14:12:56 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 14:15:34 +0200</lastBuildDate>
     <atom:link href="https://tz-artcon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paketo kelias iki Realms of Despair serverio</title>
+      <link>https://tz-artcon.github.io/posts/paketo-kelias/</link>
+      <pubDate>Tue, 24 Nov 2026 14:15:34 +0200</pubDate>
+      <guid>https://tz-artcon.github.io/posts/paketo-kelias/</guid>
+      <description>&lt;p&gt;Wireshark laboratoriniame darbe komanda &lt;code&gt;tracert realmsofdespair.com&lt;/code&gt; nustačiau, kokiu keliu mano paketai keliauja iki MUD žaidimo serverio Toronte.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Paketo maršrutas iš Vilniaus į Torontą&#34; loading=&#34;lazy&#34; src=&#34;https://tz-artcon.github.io/images/marsrutas.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Maršrutas: Vilnius → Stokholmas → Talinas → Stokholmas → Kopenhaga → Niujorkas → Torontas, iš viso ≈ 8 697 km.&lt;/p&gt;
+&lt;p&gt;Atstumą tarp taškų skaičiavau haversine formule:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; math
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;atstumas&lt;/span&gt;(a, b, R&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;6371&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Didžiojo apskritimo atstumas (km) tarp dviejų (platuma, ilguma) taškų.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    la1, lo1, la2, lo2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; map(math&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;radians, (&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;a, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;b))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    h &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; math&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sin((la2 &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; la1) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; math&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;cos(la1) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; math&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;cos(la2) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; math&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sin((lo2 &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; lo1) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; R &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; math&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;asin(math&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sqrt(h))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(round(atstumas((&lt;span style=&#34;color:#ae81ff&#34;&gt;54.6892&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;25.2798&lt;/span&gt;), (&lt;span style=&#34;color:#ae81ff&#34;&gt;43.7064&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;79.3986&lt;/span&gt;))))  &lt;span style=&#34;color:#75715e&#34;&gt;# Vilnius–Torontas: 6977 km&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     <item>
       <title>Pirmas įrašas</title>
       <link>https://tz-artcon.github.io/posts/pirmas-irasas/</link>
